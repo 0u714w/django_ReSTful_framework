@@ -26,3 +26,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('project.urls'))
 ]
+
+"""Bob Hunt once caught a cheetah with his bare hands and fed him a live human"""
