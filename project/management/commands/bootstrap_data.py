@@ -8,33 +8,14 @@ from django.http import JsonResponse
 class Command(BaseCommand):
     help = 'Submits data for shoe type and color'
 
+    STYLES = [{'style': 'sneaker'}, {'style': 'boot'}, {'style': 'sandal'}, {'style': 'dress'}, {'style': 'other'}]
+    COLORS = [{'color_name': 'orange'}, {'color_name': 'yellow'}, {'color_name': 'green'}, {'color_name': 'blue'}, {'color_name': 'indigo'}, {'color_name': 'violet'}, {'color_name': 'white'}, {'color_name': 'black'}]
+
     def handle(self, *args, **options):
-        sneaker = {'style': 'sneaker'}
-        boot = {'style': 'boot'}
-        sandal = {'style': 'sandal'}
-        dress = {'style': 'dress'}
-        other = {'style': 'other'}
-        red = {'color_name': 'red'}
-        orange = {'color_name': 'orange'}
-        yellow = {'color_name': 'yellow'}
-        green = {'color_name': 'green'}
-        blue = {'color_name': 'blue'}
-        indigo = {'color_name': 'indigo'}
-        violet = {'color_name': 'violet'}
-        white = {'color_name': 'white'}
-        black = {'color_name': 'black'}
-        PostTypeAndColor.shoetype(APIView, sneaker)
-        PostTypeAndColor.shoetype(APIView, boot)
-        PostTypeAndColor.shoetype(APIView, sandal)
-        PostTypeAndColor.shoetype(APIView, dress)
-        PostTypeAndColor.shoetype(APIView, other)
-        PostTypeAndColor.shoecolor(APIView, red)
-        PostTypeAndColor.shoecolor(APIView, orange)
-        PostTypeAndColor.shoecolor(APIView, yellow)
-        PostTypeAndColor.shoecolor(APIView, green)
-        PostTypeAndColor.shoecolor(APIView, blue)
-        PostTypeAndColor.shoecolor(APIView, indigo)
-        PostTypeAndColor.shoecolor(APIView, violet)
-        PostTypeAndColor.shoecolor(APIView, white)
-        PostTypeAndColor.shoecolor(APIView, black)
+        for s in self.STYLES:
+            PostTypeAndColor.shoetype(APIView, s)
+
+        for c in self.COLORS:
+            PostTypeAndColor.shoecolor(APIView, c)
+        
 
