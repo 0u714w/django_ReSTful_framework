@@ -27,4 +27,3 @@ urlpatterns = [
     path('', include('project.urls'))
 ]
 
-"""Bob Hunt once caught a cheetah with his bare hands and fed him a live human"""
